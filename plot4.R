@@ -41,25 +41,19 @@ data <- data_selected %>%
 
 png("plot4.png", height = 480, width = 480)
 par(mfcol = c(2, 2), bg = NA)
-# 1, 1
-with(data,{
-  plot(datetime, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power")
-})
-# 2, 1
 with(data, {
+# 1, 1
+  plot(datetime, Global_active_power, type = "l", xlab = "", ylab = "Global Active Power")
+# 2, 1
   plot(datetime, Sub_metering_1, type = "l", col = "black", xlab = "",
        ylab = "Energy sub metering")  
   lines(datetime, Sub_metering_2, col = "red")
   lines(datetime, Sub_metering_3, col = "blue")
-})
 legend("topright", lty = 1, legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
        col = c("black", "red", "blue"), box.lty = "blank")
 # 1, 2
-with(data, {
   plot(datetime, Voltage, type = "l") 
-})
 # 2, 2
-with(data, {
   plot(datetime, Global_reactive_power, type = "l")
 })
 dev.off()
