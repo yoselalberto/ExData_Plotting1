@@ -40,7 +40,6 @@ data <- data_selected %>%
 # plot 4 ------------------------------------------------------------------
 
 png("plot4.png", height = 480, width = 480)
-par(bg = NA)
 par(mfcol = c(2, 2), bg = NA)
 # 1, 1
 with(data,{
