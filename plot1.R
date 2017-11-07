@@ -1,4 +1,4 @@
-# code for creating the second graph
+# code for create the first graph
 
 
 # settings --------------------------------------------------------------------------
@@ -25,7 +25,7 @@ data_raw <- read_delim(file_name, delim = ";", col_types = cols(Voltage = "d"), 
 
 # preprocessing ---------------------------------------------------------------------
 
-# keep only days selected 
+# days selected 
 days_selected <- ymd("2007-02-01", "2007-02-02")
 # parsing Date column to date, and keeping days of interest
 data_selected <- data_raw %>% 
@@ -39,5 +39,8 @@ data <- data_selected %>%
 
 # plot 1 ------------------------------------------------------------------
 
+png("plot1.png", height = 480, width = 480)
+par(bg = NA)
 hist(data$Global_active_power, col = "red", main = "Global Active Power", 
      xlab = "Global Active Power (kilowatts)")
+dev.off()
